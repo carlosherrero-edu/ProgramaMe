@@ -1,18 +1,16 @@
-package plantillas.ej_caso1;
+package doceuvas2020.entrenamiento;
 import java.io.File;
 import java.util.Scanner;
 
 /**
 * Ejemplo de programa de AceptaElREto que lee un n�mero indeterminado de valores de entrada
-* La condici�n de terminaci�n es una �ltima l�nea con algo especial (en este caso, dos ceros)
+* La condici�n de terminaci�n es una �ltima l�nea con algo especial (en este caso, un n�mero negativo)
  * Usamos un fichero de entrada con casos de prueba
- * corresponde al problema 369: Contando en la Arena
+ * corresponde al problema 538:ToEstoERaCampo
  * @author Asus
  *
  */
-public class AburrimientoEnSobremesas {
-	
-	static final String BASE="1";
+public class ToEstoEraCampo {
 
 	public static void main(String[] args) {
 		Scanner teclado=null;
@@ -33,24 +31,18 @@ public class AburrimientoEnSobremesas {
 
 		
 	
-			int entrada;
-			String salida;
+			int edadAbuelo, edadIglesia;
 			boolean terminar=false;   //condici�n de terminaci�n 
 			
 			//leemos mientras haya m�s l�neas y no se produzca la condici�n de terminaci�n
 			while  ( teclado.hasNext() && !terminar) {
 				
 				
-				entrada = teclado.nextInt();    //n�mero a escribir en base 1
-		
+				edadAbuelo = teclado.nextInt();    //el primer n�mero es la edad del abuelo
+				edadIglesia = teclado.nextInt();   //el siguiente es la edad de la Iglesia
 				//la condici�n para terminar es que ambos n�meros sean 0
-				if (entrada !=0) {
-					//reiniciamos salida
-					salida="";
-					for (int i=1; i<=entrada; i++) {
-						salida +=BASE;
-					}
-					System.out.println( salida);
+				if (edadAbuelo !=0 || edadIglesia!=0) {
+					System.out.println( (edadAbuelo-edadIglesia >=0)? "CUERDO": "SENIL");
 				} else {
 					//activamos la condici�n de terminaci�n
 					terminar =true;

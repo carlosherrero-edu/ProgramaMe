@@ -9,7 +9,7 @@ import java.util.Scanner;
  *
  */
 
-public class NombreDeLaClase {
+public class Esqueleto_AceptaElReto {
 	
 
 	
@@ -54,13 +54,14 @@ public class NombreDeLaClase {
 			
 		//CASO 2: Hemos de procesar todas las entradas hasta llegar a un caso especial, que ignoraremos
 		boolean terminar=false;   //condición de terminación 
+
 			
 			//leemos mientras haya más líneas y no se produzca la condición de terminación
 			while  ( teclado.hasNext() && !terminar) {
 				//lectura de entradas
 				
 				//hay que comprobar si llegamos a la condición de terminación
-				if (! condicionTerminacion) {
+				if (! <condicionTerminacion>) {
 					// procesamiento
 				
 					//salida de resultados, en el formato que nos pida el  enunciado
