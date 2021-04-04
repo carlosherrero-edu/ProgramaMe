@@ -1,8 +1,10 @@
 Este proyecto consta de los siguientes elementos:
 
 Paquete "plantillas":
+
 *Esqueleto de una plantilla de clase para utilizar en el Juez en Línea, con cada uno de los 3 tipos de problemas.
-* Documento con los principales algoritmos de programación en pseudocódigo
+* Documento con los principales algoritmos de programación en pseudocódigo-
+* Instrucciones para resolver y entregar problemas en el Juez en Línea
 
 Paquete "plantillas.ej_caso1":
 *ejemplos de problemas que corresponden al  tipo 1: número determinado de casos a procesar
