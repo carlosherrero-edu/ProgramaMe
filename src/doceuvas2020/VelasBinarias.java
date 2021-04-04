@@ -17,6 +17,7 @@ public class VelasBinarias {
 	 * Método para convertir un número decimal a su representación binaria
 	 * @param numero entero largo que representa el número decimal
 	 * @return cadena con su representación a binario
+	 * NOTA: Puede evitarse el uso de este método llamando al método estático Long.toBinaryString()
 	 */
 	static String pasarABinario (long numero) {
 		
@@ -84,8 +85,11 @@ public class VelasBinarias {
 				
 				//la condici�n para terminar es que el número leído sea 0
 				if (numero != 0) {
-					//obtenemos la representación binaria del número
-					binario= pasarABinario(numero);
+					//obtenemos la representación binaria del número, con el método estático Long.toBinaryString
+					binario= Long.toBinaryString(numero);
+					
+					//la siguiente orden la descomentaríamos si quisiéramos utilizar nuestro método
+					//binario= pasarABinario(numero);
 					
 					
 					/* Tomaremos ahora la subcadena que está comprendida entre el primer
