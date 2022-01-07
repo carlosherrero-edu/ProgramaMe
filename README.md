@@ -1,3 +1,5 @@
+(Pendiente de actualización con edición 2021)
+
 Este proyecto consta de los siguientes elementos:
 
 Paquete "plantillas":
