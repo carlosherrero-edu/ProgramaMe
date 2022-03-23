@@ -1,4 +1,4 @@
-package prenavidad2020.problema3;
+package navidad2020.problema3;
 
 
 import java.util.Scanner;
@@ -10,7 +10,7 @@ import java.util.TreeSet;
 * https://www.aceptaelreto.com/problem/statement.php?id=578
 * Ruta del juez en línea:
 * https://www.aceptaelreto.com/problem/send.php?id=578
- *
+ *ACeptado por Juez en Línea, envío 616675
  */
 
 public class HaciendoInventario {
@@ -26,9 +26,9 @@ public class HaciendoInventario {
 	
 	
 	
-		int articulos;
-		TreeSet<String> inventario;
-		String item;
+		int articulos;     //número de artículos en cada caso de prueba
+		TreeSet<String> inventario;  //lista de la colección TreeSet para guardar los artículos, evitando duplicados
+		String item;   // cadena para leer cada artículo
 	
 
 		
@@ -43,20 +43,26 @@ public class HaciendoInventario {
 				//hay que comprobar si llegamos a la condición de terminación
 				if (articulos!=0) {
 					
-					//inicializar conjunto Set de cadenas tipo String
+					/*
+					 * inicializar conjunto Set de cadenas tipo String
+					 * Usamos una colección descendiente de Set porque automáticamente rechazan elementos duplicados
+					 * Podría haberse desarrollado con ArrayList, verificando antes que no está por el método contains(objeto)
+					 */
 					inventario= new TreeSet<String>();
 				
 					
 					for (int i=0; i<articulos; i++) {
+						//leemos un nuevo artículo
 						item= lector.nextLine();
+						//eliminamos del nombre espacios al principio/final y lo convertimos todo a minúsculas
 						item= item.trim().toLowerCase();
+						//lo agregamos a la lista TreeSet; lo incorporará si aún no está en la lista
 						inventario.add(item);
 						
 					}
 					
-					//salida de resultados, en el formato que nos pida el  enunciado
-					
-					
+					//salida de resultados, en el formato que nos pida el  enunciado				
+					// sólo tenemos que mostrar el número de elementos en la lista, que sabemos son diferentes
 					System.out.format("%d%n", inventario.size());
 				} else {
 					//activamos la condición de terminación

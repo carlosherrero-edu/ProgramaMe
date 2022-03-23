@@ -1,26 +1,23 @@
-(Pendiente de actualización con edición 2021)
+
 
 Este proyecto consta de los siguientes elementos:
 
 Paquete "plantillas":
 
-*Esqueleto de una plantilla de clase para utilizar en el Juez en Línea, con cada uno de los 3 tipos de problemas.
-* Documento con los principales algoritmos de programación en pseudocódigo-
+*Esqueletos de plantillas de clases para utilizar en el Juez en Línea, con cada uno de los 3 tipos de problemas.
+	*PlantillaTipo1: Problemas de Tipo 1, en los que se indica al principio el número de casos de prueba a resolver
+	*PlantillaTipo2: Problemas de Tipo 2, en los que hay que leer de teclado casos de prueba hasta que se detecta un caso especial o condición de terminación (que no hay que tratar)
+	*PlantillaTipo3: Problemas de Tipo 3, en los que hemos de leer casos de prueba hasta que no haya más casos ("fin de fichero")
+
+(la plantilla Esqueleto_AceptaElRetoV2  está obsoleta, aunque puede seguir usándose)
 * Instrucciones para resolver y entregar problemas en el Juez en Línea
 
-Paquete "plantillas.ej_caso1":
-*ejemplos de problemas que corresponden al  tipo 1: número determinado de casos a procesar
---CuantosDiasFaltan
---UltimoDigitoFactorial
+Paquete "ejemplos":
+Ejemplos de problemas resueltos en Acepta El Reto (www.aceptaelreto.com) para cada uno de los 3 tipos de problemas:
+	Tipo1: Paquete ejemplos.tipo1: Problema UltimoDigitoFactorial (id 114 en Acepta el REto)
+	Tipo2: Paquete ejemplos.tipo2: Problema PanEnBodas (id 172 en Acepta el REto)
+	Tipo3: Paquete ejemplos.tipo3: Problema Dendrocronologia (id 591 en Acepta el REto)
 
-Paquete "plantillas.ej_caso2":
-*ejemplos de problemas que corresponden al tipo 2 : caso especial que no debe procesarse y que se usa como condición de terminación
---AburrimientoEnSobremesas
---PanEnBodas
-
-Paquete "plantillas.ej_caso3":
-*ejemplos de problemas que corresponden al tipo 3: deben procesarse casos hasta llegar al final del fichero
---Pijote
 
 Paquete "doceuvas":
 * Ejemplos de problemas resueltos y aceptados de ediciones de LAs Doce Uvas anteriores a 2020
