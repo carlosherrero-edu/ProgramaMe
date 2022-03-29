@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
 * Esqueleto de programa para resolver supuestos del concurso AceptaElReto
 * Tipo 1: La primera línea indica el número de casos de prueba
-* URL del Problema:
+* URL del Problema:+
 * https://www.aceptaelreto.com/problem/statement.php?id=577
 * 
 * Ejecución desde consola:
@@ -49,7 +49,7 @@ public class CucharadasDeSopa {
 			/*
 			 * Mafalda tomó un número de cucharadas entre "mafalda" y "totales"
 			 * REcorremos esos valores y comprobamos si el número de cucharadas 
-			 * del padre es válido- está entre 0 y "padre"
+			 * que ha tenido que tomar el padre válido- está entre 0 y "padre" (valor máximo leído)
 			 */
 			for (int k=mafalda; k<=totales; k++) {
 				if ((totales-k)>=0 && (totales-k)<=padre) {

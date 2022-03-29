@@ -67,16 +67,22 @@ public class LioCasosPruebaArrays {
 							
 								//nos situamos en el nodo de la lista indicado por "perdido"
 								indice=perdido;	
-		
 								while (indice <numCasos) {
 							
 									salto=listaCasos[indice];
+									/*
+									 * Si el salto es superior al número de elementos que quedan por leer
+									 * generamos una excepción para salir del bucle y tomar otro valor de perdido
+									 */
+									if (salto>(numCasos-indice-1)) {
+										throw new Exception("Valor imposible");
+									}
 									//vemos si esta posición existe y no provoca excepción
-									if (listaCasos[indice+salto]>=0) {
+									int extremo=listaCasos[indice+salto];
 			
-										//siguiente elemento que hemos de leer
-										indice= indice+salto+1;
-									}									
+									//siguiente elemento que hemos de leer
+									indice= indice+salto+1;
+																	
 			
 								} //repetimos el proceso
 							//si no se ha producido ninguna excepción al recorrer toda la lista, hemos encontrado el valor que buscábamos
@@ -91,7 +97,7 @@ public class LioCasosPruebaArrays {
 					
 				
 					//salida de resultados, en el formato que nos pida el  enunciado
-					System.out.println( perdido);
+					System.out.println(perdido);
 				} else {
 					//activamos la condición de terminación
 					terminar =true;

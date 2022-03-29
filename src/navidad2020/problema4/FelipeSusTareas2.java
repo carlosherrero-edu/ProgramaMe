@@ -1,8 +1,9 @@
 package navidad2020.problema4;
 
-import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeMap;
 
 /**
 * Esqueleto de programa para resolver supuestos del concurso AceptaElReto
@@ -14,9 +15,9 @@ import java.util.Scanner;
 * Ejecución desde consola(bin):
 * >>> java   paquete.Clase <ruta/sample.in > ruta/sample.res
  *>>> diff sample.out sample.res  // para comprobar las diferencias
- *Aceptado por Juez en Lïnea, envío 616938
+ *Aceptado por Juez en Lïnea, envío 619408
  */
-public class FelipeSusTareas {
+public class FelipeSusTareas2 {
 	
 	
 	//Objeto de la clase Scanner que usaremos para leer los datos de entrada
@@ -27,7 +28,8 @@ public class FelipeSusTareas {
 	
 		int numeroTareas;          //número de tareas que ha realizado Felipe
 		int prioridad, duracion;    //prioridad y duración de cada tarea
-		ArrayList<Tarea> lista;    //lista de objetos de la clase Tarea, donde guardamos cada tarea de Felipe
+		int metrica;            //métrica indicando el nivel de prioridad de la tarea
+		TreeMap<Integer,Integer> tablaTareas;  //lista de objetos de la clase Tarea, donde guardamos cada tarea de Felipe
 	
 	
 	
@@ -42,23 +44,42 @@ public class FelipeSusTareas {
 				
 				//hay que comprobar si llegamos a la condición de terminación
 				if (numeroTareas>0) {
-					//inicializo la lista de tareas
-					lista=new ArrayList<>(numeroTareas);
+					
+					//inicializo la lista de tareas. Uso TreeMap, pues me garantiza orden por la clave
+					tablaTareas=new TreeMap<Integer,Integer>();
 					// procesamiento para cada tarea o línea
 					for (int k=0;k<numeroTareas; k++) {
 						//leo los campos prioridad y duracion
 						prioridad=lector.nextInt();
 						duracion=lector.nextInt();
 						//creo un nuevo objeto Tarea y lo agrego a la lista
-	
-						lista.add(new Tarea(prioridad,duracion));									
+						
+						metrica=1000*prioridad+ (1000-duracion);
+						if (tablaTareas.containsKey(metrica)) {
+							tablaTareas.put(metrica, tablaTareas.get(metrica)+1);
+							
+						} else {
+							//en caso contrario, lo agrego con 1 ocurrencia
+							tablaTareas.put(metrica, 1);
+						}
+						
+														
 					}
-					//una vez leídas , las ordeno por su "orden natural", definido por el método compareTo de la clase Tarea
-					Collections.sort(lista);
+					
 				
 					//salida de resultados, en el formato que nos pida el  enunciado
-					for (Tarea t : lista) {
-						System.out.format("%d %d\n", t.getPrioridad(),t.getDuracion());
+					//genero la lista de claves ordenadas de mayor a menor valor
+					Set<Integer> listaClaves= tablaTareas.descendingKeySet();
+					int repeticiones;
+					for (Integer clave : listaClaves) {
+						//deshacemos la función de conversión
+						prioridad=clave/1000;
+						duracion= 1000-( clave%1000);
+						repeticiones=tablaTareas.get(clave);
+						//mostramos la salida para cada vez que se repite la clave
+						for (int k=1; k<=repeticiones; k++) {
+							System.out.format("%d %d\n", prioridad,duracion);
+						}
 					}
 					//separador entre cada lista de tareas
 					System.out.println("---");
@@ -75,54 +96,4 @@ public class FelipeSusTareas {
 
 }//fin de la clase
 
-//clase no pública para gestionar y ordenar las las tareas
-	class Tarea implements Comparable<Tarea>{
-		
-		//propiedades
-		int prioridad;
-		int duracion;
-		
-		//constructor
-		Tarea(int prioridad, int duracion){
-			this.prioridad=prioridad;
-			this.duracion=duracion;
-		}
-		
-		
-		//getters
-	public int getPrioridad() {
-			return this.prioridad;
-		}
 
-
-
-		public int getDuracion() {
-			return this.duracion;
-		}
-
-
-
-	/**
-	 *  Este método compara el objeto Tarea que lo recibe con otro objeto Tarea o
-	 *  En una ordenación , aparece antes el objeto con mayor valor de prioridad
-	 *  Para igual valor de prioridad, aparece antes el objeto con menor duración de la tarea
-	 */
-	@Override
-	public int compareTo(Tarea o) {
-		
-		if ( this.getPrioridad() <o.getPrioridad()) {
-			return +1;
-		} else if (this.getPrioridad() >o.getPrioridad()) {
-			return -1;
-		} else {
-			if (this.getDuracion()<o.getDuracion()) {
-				return -1;
-			} else if (this.getDuracion()>o.getDuracion()) {
-				return +1;
-			} else {
-				return 0;
-			}
-		}
-	}
-		
-	} //fin de la clase Tarea
