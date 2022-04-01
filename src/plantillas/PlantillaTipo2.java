@@ -20,7 +20,7 @@ public class PlantillaTipo2 {
 
 	public static void main(String[] args) {
 	
-	
+	int primero;
 	
 		
 		//CASO 2: Hemos de procesar todas las entradas hasta llegar a un caso especial, que ignoraremos
@@ -29,10 +29,10 @@ public class PlantillaTipo2 {
 			
 			//leemos mientras haya más líneas y no se produzca la condición de terminación
 			while  (!terminar && lector.hasNext()) {
-				//lectura de entradas
+				primero=lector.nextInt();
 				
 				//hay que comprobar si llegamos a la condición de terminación
-				if (! condicionTerminacion) {
+				if (!(primero ==0)) {
 					// procesamiento
 				
 					//salida de resultados, en el formato que nos pida el  enunciado
