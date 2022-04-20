@@ -9,7 +9,8 @@ import java.util.Scanner;
  * del Problema: https://www.aceptaelreto.com/problem/statement.php?id=478
  * Ejecución desde consola(bin): >>> java paquete.Clase <ruta/sample.in >
  * ruta/sample.res >>> diff sample.out sample.res // para comprobar las
- * diferencias NO ACEPTADO: Runtime Error
+ * diferencias 
+ACEPTADO envío 625242
  */
 public class Conjuritis {
 
@@ -19,13 +20,13 @@ public class Conjuritis {
 	public static void main(String[] args) {
 
 		int numEle;// número de elementos que leemos -armas-
-		int[] valores; // array con los poderes destructivos de cada arma
-		int suma; // suma de los valores de los poderes destructivos
-		int poder; // valor del poder destructivo efectivo de todas las armas, excepto 2 que son
+		long[] valores; // array con los poderes destructivos de cada arma
+		long suma; // suma de los valores de los poderes destructivos
+		long poder; // valor del poder destructivo efectivo de todas las armas, excepto 2 que son
 					// inútiles
-		int diferencia; // diferencia entre suma y poder
+		long diferencia; // diferencia entre suma y poder
 		int tope; // índice del último elemento en la sublista donde vamos a buscar
-		int termino1, termino2;
+		long termino1, termino2;
 
 		// CASO 2: Hemos de procesar todas las entradas hasta llegar a un caso especial,
 		// que ignoraremos
@@ -39,7 +40,7 @@ public class Conjuritis {
 			// hay que comprobar si llegamos a la condición de terminación
 			if (!(numEle == 0)) {
 				// procesamiento
-				valores = new int[numEle];
+				valores = new long[numEle];
 				suma = 0;
 				for (int k = 0; k < numEle; k++) {
 					// leemos y sumamos
@@ -47,7 +48,7 @@ public class Conjuritis {
 					suma += valores[k];
 				}
 				// leemos ahora el poder efectivo de todos los conjuros
-				poder = lector.nextInt();
+				poder = lector.nextLong();
 				/*
 				 * //hemos de buscar ahora 2 términos de la serie cuya suma sea igual la
 				 * diferencia (suma-poder) //tomamos la sublista de los términos menores que esa

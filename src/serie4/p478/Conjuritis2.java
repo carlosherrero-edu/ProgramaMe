@@ -25,7 +25,7 @@ public class Conjuritis2 {
 		long poder; // valor del poder destructivo efectivo de todas las armas, excepto 2 que son
 					// inútiles
 		long diferencia; // diferencia entre suma y poder
-		int tope; // índice del último elemento en la sublista donde vamos a buscar
+		
 		long termino1, termino2;
 
 		// CASO 2: Hemos de procesar todas las entradas hasta llegar a un caso especial,
