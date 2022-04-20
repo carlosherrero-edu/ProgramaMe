@@ -10,7 +10,7 @@ import java.util.Scanner;
 * Ejecución desde consola(bin):
 * >>> java   paquete.Clase <ruta/sample.in > ruta/sample.res
  *>>> diff sample.out sample.res  // para comprobar las diferencias
- *NO HA PASADO: ERROR GENERAL: HAY ALGO DEL ENUNCIADO QUE NO ENTENDÍ BIEN...
+ *ACEPTADO envío 625226
  */
 public class NumerosBicapicua {
 	
@@ -26,18 +26,24 @@ public class NumerosBicapicua {
 	static boolean esCapicua(String numero) {
 		String numeroAlReves=""; //cadena con el 'inverso' del número
 		/*
-		 * caso especial: El 0 se considera capicúa
+		 * caso especial: cualquier cadena con 1 sola cifra se considera capicúa
 		 */
-		if (numero.equals("0")) {
+		if (numero.length()==1) {
 			return true;
+		} 
+		//otro caso especial: si empieza por 0, no lo consideramos capicúa
+		else if (numero.charAt(0)=='0') {
+			return false;
+		} else {
+			//construimos caracter a caracter el número al revés
+			for (int k=0; k<numero.length();k++) {
+				numeroAlReves=numero.charAt(k)+numeroAlReves;
+			}
+			
+			return numero.equals(numeroAlReves);
 		}
 		
-		//construimos caracter a caracter el número al revés
-		for (int k=0; k<numero.length();k++) {
-			numeroAlReves=numero.charAt(k)+numeroAlReves;
-		}
 		
-		return numero.equals(numeroAlReves);
 	}
 
 	public static void main(String[] args) {
@@ -71,15 +77,9 @@ public class NumerosBicapicua {
 						int posicion=1;
 						
 						while (!esBicapicua && posicion<numeroCad.length() ) {
-							/*
-							 * Si la posición de corte contiene un dígito 0 y no es la última, saltamos este caso
-							 * 
-							 */
-							if (numeroCad.charAt(posicion)=='0' && posicion<(numeroCad.length()-1)) {
-								break;
-							}
+							
 							//extraemos las dos subcadenas  en que puedo dividir numeroCad
-							numero1=numeroCad.substring(0, posicion);
+							numero1=numeroCad.substring(0, posicion);  //no incluye posicion
 							numero2=numeroCad.substring(posicion);
 							
 							
@@ -88,6 +88,7 @@ public class NumerosBicapicua {
 								//el número es bicapicúa, paramos el bucle
 								esBicapicua=true;
 							}
+							//incrementamos la posición de corte
 							posicion++;
 						}
 					

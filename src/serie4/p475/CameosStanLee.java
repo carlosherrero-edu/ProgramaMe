@@ -42,25 +42,26 @@ public class CameosStanLee {
 			cadenaLeida=lector.nextLine();
 
 			// procesamiento
-			//transformamos la cadena leída, pasando a mayúsculas y eliminando espacios
+			//transformamos la cadena leída, pasando a mayúsculas y eliminando espacios o signos de puntuación
 			cadenaLeida=cadenaLeida.replaceAll("\\W+", "").toLowerCase();
 			//iniciamos el número de repeticiones de Stan Lee
 			aparicionesStan=0;
 			int indice=0;
 			boolean salir=false;
 			while (!salir) {
+				//este bucle for va buscando dónde se encuentra cada uno de los caracteres en la cadena 'stanlee'
 				for (int k=0; k<BUSCADA.length(); k++) {
 					posicion=cadenaLeida.indexOf(BUSCADA.charAt(k), indice);
 					if (posicion <0) {
-						//ya no puede haber más ocurrencias de Stanley Lee, nos salimos
+						//ya no puede haber más ocurrencias de Stanley Lee, nos salimos del bucle for
 						salir=true;
 						break;
 					} else {
-						//actualizamos indice para empezar a buscar en el siguiente carácter
+						//actualizamos indice para empezar a buscar el siguiente carácter de 'stanlee' a partir de la siguiente posición
 						indice=posicion+1;
 					}
 				}//fin del bucle for
-				//si llegamos aquí y no hemos salido del bucle
+				//si llegamos aquí y no hemos salido del bucle, hemos encontrado una repetición completa de 'stanlee'
 				if (!salir)
 					aparicionesStan++;
 			}//fin del bucle while
